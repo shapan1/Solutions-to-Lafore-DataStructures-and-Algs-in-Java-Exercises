@@ -37,18 +37,23 @@ class OrdArray
 		int upperBound = nElems-1;
 		int curIn;
 		while(true)
-		{
+		{	/**
+			* @author Shapan Dashore
+			* Shouldn't the expression for currIn be 
+			* (lowerBound +(upperBound-lowerBound))/2
+			* to avoid silent overflow when using binary search.
+			*/
 			curIn = (lowerBound + upperBound ) / 2;
 			if(a[curIn]==searchKey)
 				return curIn; // found it
 			else if(lowerBound > upperBound)
-				return nElems; // can’t find it
+				return nElems; // canâ€™t find it
 			else // divide range
 			{
 				if(a[curIn] < searchKey)
-					lowerBound = curIn + 1; // it’s in upper half
+					lowerBound = curIn + 1; // itâ€™s in upper half
 				else
-					upperBound = curIn - 1; // it’s in lower half
+					upperBound = curIn - 1; // itâ€™s in lower half
 			} // end else divide range
 		} // end while
 	} // end find()
@@ -78,7 +83,7 @@ class OrdArray
 	public boolean delete(long value)
 	{
 		int j = find(value);
-		if(j==nElems) // can’t find it
+		if(j==nElems) // canâ€™t find it
 			return false;
 		else // found it
 		{
